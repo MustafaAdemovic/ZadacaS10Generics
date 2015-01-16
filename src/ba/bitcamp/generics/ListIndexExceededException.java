@@ -1,5 +1,4 @@
 package ba.bitcamp.generics;
-
 /**
  * Runtime exception thrown if index based list operations failed.
  * 

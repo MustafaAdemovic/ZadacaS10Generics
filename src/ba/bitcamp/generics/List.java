@@ -1,4 +1,5 @@
 package ba.bitcamp.generics;
+import java.util.Iterator;
 
 /**
  * Simple implementation of basic list methods, based on single linked element wrappers.
@@ -6,7 +7,7 @@ package ba.bitcamp.generics;
  * @author emir
  *
  */
-public class List {
+public class List implements Iterable <Object> {
 	private ValueWrapper first, last;
 	
 	/**
@@ -204,5 +205,34 @@ public class List {
 			wrapper = wrapper.getNext();
 		}
 		return sb.append(']').toString();
+	}
+
+	@Override
+	public Iterator<Object> iterator() {
+		return new Itterator <Object> (first);
+	}
+	
+	private class Itterator<T> implements Iterator<T> {
+		private ValueWrapper current;
+		
+		public Itterator(ValueWrapper head) {
+			current = head;
+		}
+		
+		@Override
+		public boolean hasNext() {
+			return current != null;
+		}
+
+		@Override
+		public T next() {
+			Object value = (Object) current.getValue();
+			current = current.getNext();
+			return (T) value;
+		}
+
+		@Override
+		public void remove() {}
+		
 	}
 }

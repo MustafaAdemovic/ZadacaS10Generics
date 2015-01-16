@@ -1,5 +1,4 @@
 package ba.bitcamp.generics;
-
 /**
  * Node interface for read-only walking through list.
  * 

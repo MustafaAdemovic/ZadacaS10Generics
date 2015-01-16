@@ -1,5 +1,4 @@
 package ba.bitcamp.generics;
-
 /**
  * {@link ListNode} implementation. 
  * 

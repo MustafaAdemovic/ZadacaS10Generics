@@ -1,5 +1,6 @@
 package ba.bitcamp.generics;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -175,5 +176,18 @@ public class CollectionUtils {
 			}
 		}
 		return null;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static <E> E maximumValue(Collection<E> c) {
+		Iterator<E> iterator = c.iterator();
+		E e = iterator.next();
+		while (iterator.hasNext()) {
+			E current = iterator.next();
+			if (((Comparable) e).compareTo((Comparable) current) > 0) {
+				e = current;
+			}	
+		}
+		return e;
 	}
 }
