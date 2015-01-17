@@ -17,6 +17,9 @@ public class CSVBuilder {
 	 * @throws NullPointerException in case provided object is null
 	 */
 	public CSVBuilder append(String str) {
+		if (str == null) {
+			str = ""; // Veoma logicno
+		}
 		if (res != null) {
 			res = res.concat(",").concat(str);
 		} else {
